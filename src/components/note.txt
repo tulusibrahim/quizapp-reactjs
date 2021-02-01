@@ -1,2 +1,0 @@
-buat acak jawaban = (pilihanjawaban.sort(function () { return 0.5 - Math.random() }))
-buat replace quot2 babi = question.replace(/&quot;/g, '"').replace(/&#039;s/g, "'s").replace(/&#34;/g, '"').replace(/&#039;t/, "'t").replace(/&#039;/, "'")
