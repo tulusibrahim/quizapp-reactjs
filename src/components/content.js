@@ -1,4 +1,8 @@
 import { useState } from "react"
+import Answer from './answer'
+import Decision from "./decision";
+import LoadingAnim from './loadinganim'
+import Option from './option'
 
 function Content() {
     let [loading, setLoading] = useState(false)
@@ -8,10 +12,7 @@ function Content() {
     let [answer, setAnswer] = useState('')
     let [display, setDisplay] = useState('none')
     let [displayTimer, setdisplayTimer] = useState('none')
-    // let [rightAnswer, setRightAnswer] = useState('')
     let [judge, setJudge] = useState('')
-    // let [score, setScore] = useState(0)
-    // let [currentScore, setCurrentScore] = useState(0)
     let [timer, setTimer] = useState(7)
 
 
@@ -25,7 +26,7 @@ function Content() {
             }
         }, 1000);
     }
-    //fas fa-spinner fa-pulse fa-spinner
+
     let req = () => {
         setLoading(true)
         console.log(loading)
@@ -60,54 +61,5 @@ function Content() {
         </div>
     )
 }
-
-function LoadingAnim(props) {
-    return (
-        <h2 id="ask" style={{ textAlign: 'center' }}>{props.isLoading && 'Loading...'}{props.res}</h2>
-    )
-}
-
-function Decision(props) {
-    return (
-        <span id="judge" style={{ display: props.isDisplay }}>{props.decision}</span>
-    )
-}
-
-function Answer(props) {
-    return (
-        <h4 id="jawaban" style={{ display: props.isDisplay }}>
-            {props.timerr === 0 ? "The answer is " + props.res + "!" : "The answer revealed in " + props.timerr}
-            <span id="timer"></span>
-        </h4>
-    )
-}
-
-function Option(props) {
-
-    const detAns = (e) => {
-        // e.target.disabled = true
-        let btn = document.querySelectorAll(".button")
-        for (let i = 0; i < btn.length; i++) {
-            btn[i].disabled = true
-        }
-        if (props.ans === e.target.textContent) {
-            props.setjudge("Youre right.")
-        }
-        else {
-            props.setjudge("Youre wrong.")
-        }
-    }
-
-    return (
-        <div id="option">
-            {
-                props.judgjing.map(res => {
-                    return <button key={res} className="button" onClick={(e) => detAns(e)}>{res}</button>
-                })
-            }
-        </div>
-    )
-}
-
 
 export default Content
