@@ -12,7 +12,7 @@ function Content() {
     let [judge, setJudge] = useState('')
     // let [score, setScore] = useState(0)
     // let [currentScore, setCurrentScore] = useState(0)
-    let [timer, setTimer] = useState(4)
+    let [timer, setTimer] = useState(7)
 
 
     let reduce = () => {
@@ -31,7 +31,7 @@ function Content() {
         console.log(loading)
         setQuestion('')
         setAnswer('')
-        setTimer(timer = 4)
+        setTimer(timer = 7)
         setChoices([])
         setDisplay('none')
         setBtnDisplay('none')
