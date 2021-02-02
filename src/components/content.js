@@ -18,7 +18,8 @@ function Content() {
     let [category, setCategory] = useState(0)
     let [error, setError] = useState(false)
     let [choosecat, setChoosecat] = useState(false)
-    let [btntext, setBtnText] = useState("Next Question")
+    let [btntext, setBtnText] = useState("")
+    let [dropdown, setDropdown] = useState(false)
 
     let GetData = (data) => {
         console.log(data)
@@ -36,12 +37,19 @@ function Content() {
         setBtnText('Start Quiz!')
     }, [])
 
+    let dropp = () => {
+        if (dropdown === false) {
+            setDropdown(true)
+        }
+    }
 
 
-    let reduce = () => {
-        let interval = setInterval(() => {
+    const reduce = () => {
+        const interval = setInterval(() => {
             setTimer(timer--)
+            dropp()
             if (timer < 0) {
+                setDropdown(false)
                 clearInterval(interval)
                 setDisplay('block')
                 setBtnDisplay('block')
@@ -94,7 +102,7 @@ function Content() {
             <Decision isDisplay={display} decision={judge} />
             <button id="next" onClick={req} style={{ display: btnDisplay }}>{btntext}</button>
             <div id="currentscore" style={{ display: `display` }}></div>
-            <Category categ={GetData} />
+            <Category categ={GetData} drop={dropdown} />
         </div>
     )
 }

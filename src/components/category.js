@@ -12,6 +12,7 @@ const Category = (props) => {
         console.log(data)
         props.categ(data)
     }
+    console.log(props.drop)
 
     useEffect(() => {
         toParent()
@@ -32,7 +33,7 @@ const Category = (props) => {
             setText("More options")
             setDisplay('none')
             setOpacity(0)
-            toParent()
+            // toParent()
         }
 
     }
@@ -40,7 +41,7 @@ const Category = (props) => {
     return (
         <div className="category">
             <p onClick={showcat}>{text} <i className={className}></i></p>
-            <Showcategory high={height} isDisplay={display} opac={opacity} categ={toParent} />
+            <Showcategory high={height} isDisplay={display} opac={opacity} categ={toParent} drop={props.drop} />
         </div>
     );
 }

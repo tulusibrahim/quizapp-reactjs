@@ -1,4 +1,34 @@
+select{
+  background-color: #EFF2F1;
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  padding: 7px;
+  border-radius: 7px;
+  cursor: pointer;
+  outline: none;
+}
+select option:hover{
+  cursor: pointer;
+}
 
+.fa-chevron-up, .fa-chevron-down{
+  animation: panahbawah 3s infinite;
+}
+
+@keyframes panahbawah {
+  0% {
+      transform: translateY(-2px);
+  }
+
+  50% {
+      transform: translateY(2px);
+  }
+
+  100% {
+      transform: translateY(-2px);
+  }
+}
 
 .showcat{
   height: 0px;
