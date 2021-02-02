@@ -15,6 +15,7 @@ const Category = (props) => {
 
     useEffect(() => {
         toParent()
+        // eslint-disable-next-line
     }, [])
 
     let showcat = () => {
