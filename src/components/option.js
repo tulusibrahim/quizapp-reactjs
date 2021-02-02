@@ -15,6 +15,7 @@ function Option(props) {
 
     return (
         <div id="option">
+            {props.cat && "Please choose one of category in More options section"}
             {
                 props.judgjing.map(res => {
                     return <button key={res} className="button" onClick={(e) => detAns(e)}>{res}</button>
