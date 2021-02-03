@@ -20,6 +20,8 @@ function Content() {
     let [choosecat, setChoosecat] = useState(false)
     let [btntext, setBtnText] = useState("")
     let [dropdown, setDropdown] = useState(false)
+    let [btnColor, setBtnColor] = useState('')
+    let [btndisable, setBtndisable] = useState('')
 
     let GetData = (data) => {
         console.log(data)
@@ -53,20 +55,17 @@ function Content() {
                 clearInterval(interval)
                 setDisplay('block')
                 setBtnDisplay('block')
+                setBtndisable(true)
             }
         }, 1000);
     }
 
-    //celebrity = 26
-    //sports = 21
-    //general knowledge = 9
-    //animal = 27
-    //science computer = 18
-    //film = 11
-
     let req = () => {
         setLoading(true)
         setError(false)
+        setBtndisable(false)
+        setJudge('')
+        setBtnColor('#114B5F')
         setBtnText('Next question')
         setQuestion('')
         setAnswer('')
@@ -97,10 +96,10 @@ function Content() {
     return (
         <div id="content">
             <LoadingAnim isLoading={loading} res={question} err={error} />
-            <Option judgjing={choices} ans={answer} setjudge={setJudge} cat={choosecat} />
+            <Option judgjing={choices} ans={answer} setjudge={setJudge} cat={choosecat} btncolor={setBtnColor} btndis={btndisable} />
             <Answer res={answer} timerr={timer} isDisplay={displayTimer} />
             <Decision isDisplay={display} decision={judge} />
-            <button id="next" onClick={req} style={{ display: btnDisplay }}>{btntext}</button>
+            <button id="next" onClick={req} style={{ display: btnDisplay, backgroundColor: btnColor }}>{btntext}</button>
             <div id="currentscore" style={{ display: `display` }}></div>
             <Category categ={GetData} drop={dropdown} />
         </div>

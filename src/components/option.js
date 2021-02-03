@@ -7,9 +7,11 @@ function Option(props) {
         }
         if (props.ans === e.target.textContent) {
             props.setjudge("Youre right.")
+            props.btncolor('#136149')
         }
         else {
             props.setjudge("Youre wrong.")
+            props.btncolor('#EE6055')
         }
     }
 
@@ -18,7 +20,7 @@ function Option(props) {
             {props.cat && "Please choose one of category in More options section."}
             {
                 props.judgjing.map(res => {
-                    return <button key={res} className="button" onClick={(e) => detAns(e)}>{res}</button>
+                    return <button key={res} className="button" onClick={(e) => detAns(e)} disabled={props.btndis ? true : false}>{res}</button>
                 })
             }
         </div>
